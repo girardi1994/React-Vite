@@ -1,8 +1,11 @@
-import Post from './Post';
+import { Header } from './components/Header';
+import {Post} from './Post';
+import "./styles.css";
 export function App() {
 
   return (
     <div>
+      <Header />
     <Post
       author="Ricardo Girardi"
       content="fsdgsfgsfgdfg"
@@ -14,7 +17,7 @@ export function App() {
     
     
   </div>
-  )
+  );
 }
 
 
