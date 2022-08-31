@@ -13,7 +13,7 @@ export function Coment() {
               <strong>Ricardo Girardi</strong>
               <time
                 title="30 de Agosto às 10:10h"
-                dataTime="2022-08-30 10:10:00"
+                dateTime="2022-08-30 10:10:00"
               >
                 Cerca de 1h atrás
               </time>
