@@ -1,9 +1,15 @@
 import { format, formatDistanceToNow } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
+import { useState } from "react";
 import { Avatar } from "./Avatar";
 import { Coment } from "./Coment";
 import styles from "./Post.module.css";
+
 export function Post({ author, publishedAT, content }) {
+  const [coments, setComents] = useState([
+    1,
+
+  ])
   const publishedDateFormatted = format(
     publishedAT,
     "d 'de' LLLL 'às' HH:MM'h'",
@@ -14,7 +20,12 @@ export function Post({ author, publishedAT, content }) {
   const publishedDateRelativeToNow = formatDistanceToNow(publishedAT, {
     locale: ptBR,
     addSuffix: true,
-  });
+  })
+
+  function handleCreateNewComent(){
+    event.preventDefault()
+    setComents([...coments, coments.length + 1]);
+  };
   return (
     <article className={styles.post}>
       <header>
@@ -30,7 +41,6 @@ export function Post({ author, publishedAT, content }) {
           title={publishedDateFormatted}
           dateTime={publishedAT.toISOString()}
         >
-          {" "}
           {publishedDateRelativeToNow}
         </time>
       </header>
@@ -47,7 +57,7 @@ export function Post({ author, publishedAT, content }) {
           }
         })}
       </div>
-      <form className={styles.comentForm}>
+      <form onSubmit={handleCreateNewComent} className={styles.comentForm}>
         <strong>Deixe sei feedback</strong>
         <textarea placeholder="Deixe um comentário" />
         <footer>
@@ -55,9 +65,9 @@ export function Post({ author, publishedAT, content }) {
         </footer>
       </form>
       <div className={styles.comentList}>
-        <Coment />
-        <Coment />
-        <Coment />
+        {coments.map(coment => {
+          return <Coment/>
+          })}
       </div>
     </article>
   );
