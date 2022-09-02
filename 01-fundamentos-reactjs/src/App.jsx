@@ -36,9 +36,9 @@ const posts = [
       role: "Representante comercial",
     },
     content: [
-      { type: "paragraph", content: "Lulaaa",},
+      { type: "paragraph", content: "Belo post",},
 
-      { type: "paragraph", content: "Juntos podemos mais! 13🚀" },
+      { type: "paragraph", content: "Foguete não tem ré🚀" },
 
       { type: "link", content: 'jane.design/doctorcare' },
     ],
